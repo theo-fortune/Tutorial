@@ -1,34 +1,35 @@
-console.log("Hello World");
+const person = {
+  name: "Fortune",
+  age: 16,
+  eyeColor: "black",
+  gender: "Male",
+  married: true,
+  children: {
+    Child1: "Anastasia",
+    Child2: "Flourish",
+    Child3: "Rose",
+  },
+  phones: ["Samsung s24 Ultra", "iPhone 15 Pro Max", "Google Pixel 8 Pro"],
+};
+person.car = "Bugatti Chiron";
+console.log(person);
 
-const fruits = ["mango", "apple", "pineapple", "grape"];
-const show = fruits.toString();
-console.log(show);
+// * Mutable Objects
+const x = person;
+x.age = 20;
+console.log(person.age);
 
-console.log(fruits.pop());
-fruits.push("Strawberry");
-console.log(fruits);
-fruits.shift();
-console.log(fruits);
-fruits.unshift("kiwi");
-console.log(fruits);
-fruits[0] = "orange";
-fruits[2] = "watermelon";
-fruits[1] = "banana";
-console.log(fruits);
 
-const vegetables = ["Carrot", "Spinach", "Corn", "Okra", "Pepper", "Onions"];
-const food = fruits.concat(vegetables);
-console.log(food);
+const status = `${person.name} is ${person.age} years old ${
+  person.married
+    ? "and He is happily married"
+    : "and He is single and searching..."
+} and drives a ${person.car}`;
+console.log(status);
 
-const recipes = ["Garlic", "Ginger", "Salt"];
-
-const breakfast = fruits.concat(vegetables, recipes);
-console.log(breakfast);
-const modify = breakfast.concat("cheese", "water");
-console.log(modify);
-
-modify.splice(2, 0, "Lemon", "Cherry")
-console.log(modify);
-
-const clean = modify.slice(3)
-console.log(clean);
+delete person["eyeColor"];
+// delete person["eyeColor"];
+console.log(person);
+console.log(person.children.Child2);
+console.log(person.phones[1]);
+// console.log(person.birthDay());
