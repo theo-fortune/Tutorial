@@ -1,35 +1,34 @@
-const person = {
-  name: "Fortune",
-  age: 16,
-  eyeColor: "black",
-  gender: "Male",
-  married: true,
-  children: {
-    Child1: "Anastasia",
-    Child2: "Flourish",
-    Child3: "Rose",
-  },
-  phones: ["Samsung s24 Ultra", "iPhone 15 Pro Max", "Google Pixel 8 Pro"],
+const getYearProgress = (year) => {
+  //* Get today's date
+  const today = new Date();
+
+  //* Calculate the start of the year and the end of the year
+  const startOfYear = new Date(year, 0, 1);
+  const endOfYear = new Date(year, 11, 31);
+
+  //* Calculate the total number of days in the year
+  const totalDaysInYear = (endOfYear - startOfYear) / (1000 * 60 * 60 * 24) + 1;
+
+  //* Calculate the number of days spent so far
+  const daysSpent = (today - startOfYear) / (1000 * 60 * 60 * 24) + 1;
+
+  //* Calculate the percentage of the year that has passed
+  const percentageSpent = (daysSpent / totalDaysInYear) * 100;
+
+  //* Calculate the number of days remaining
+  const daysRemaining = totalDaysInYear - daysSpent;
+
+  //* Format the output
+  const formattedPercentage = percentageSpent.toFixed(2);
+  const formattedDaysSpent = Math.floor(daysSpent);
+  const formattedDaysRemaining = Math.floor(daysRemaining);
+
+  //* Output the result
+  console.log(
+    `${year} is ${formattedPercentage}% gone, ${formattedDaysSpent} days have been spent so far. And now we have ${formattedDaysRemaining} days remaining.`
+  );
 };
-person.car = "Bugatti Chiron";
-console.log(person);
 
-// * Mutable Objects
-const x = person;
-x.age = 20;
-console.log(person.age);
-
-
-const status = `${person.name} is ${person.age} years old ${
-  person.married
-    ? "and He is happily married"
-    : "and He is single and searching..."
-} and drives a ${person.car}`;
-console.log(status);
-
-delete person["eyeColor"];
-// delete person["eyeColor"];
-console.log(person);
-console.log(person.children.Child2);
-console.log(person.phones[1]);
-// console.log(person.birthDay());
+//* Example usage
+const currentYear = new Date().getFullYear();
+getYearProgress(currentYear);
