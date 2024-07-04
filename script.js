@@ -1,34 +1,75 @@
-const getYearProgress = (year) => {
-  //* Get today's date
-  const today = new Date();
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
 
-  //* Calculate the start of the year and the end of the year
-  const startOfYear = new Date(year, 0, 1);
-  const endOfYear = new Date(year, 11, 31);
+const fruits = ["apple", "banana", "mango"];
 
-  //* Calculate the total number of days in the year
-  const totalDaysInYear = (endOfYear - startOfYear) / (1000 * 60 * 60 * 24) + 1;
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
 
-  //* Calculate the number of days spent so far
-  const daysSpent = (today - startOfYear) / (1000 * 60 * 60 * 24) + 1;
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
 
-  //* Calculate the percentage of the year that has passed
-  const percentageSpent = (daysSpent / totalDaysInYear) * 100;
+let j = 0;
+do {
+  console.log(j);
+  j++;
+} while (j < 5);
 
-  //* Calculate the number of days remaining
-  const daysRemaining = totalDaysInYear - daysSpent;
+const siblings = ["Jesse", "Mark", "Luis"];
+for (let j = 0; j < siblings.length; j++) {
+  console.log(siblings[j] + "");
+}
 
-  //* Format the output
-  const formattedPercentage = percentageSpent.toFixed(2);
-  const formattedDaysSpent = Math.floor(daysSpent);
-  const formattedDaysRemaining = Math.floor(daysRemaining);
-
-  //* Output the result
-  console.log(
-    `${year} is ${formattedPercentage}% gone, ${formattedDaysSpent} days have been spent so far. And now we have ${formattedDaysRemaining} days remaining.`
-  );
+const person = {
+  name: "Grace",
+  gender: "Female",
+  siblings: siblings,
+  age: 21,
+  isMarried: false,
+  city: "New York",
 };
 
-//* Example usage
-const currentYear = new Date().getFullYear();
-getYearProgress(currentYear);
+for (let key in person) {
+  console.log(key + ": " + person[key]);
+}
+
+const array = [1, 2, 3, 4, 5];
+for (let value of array) {
+  console.log(value);
+}
+
+for (let i = 0; i < 10; i++) {
+  if (i === 5) break;
+  console.log(i);
+}
+
+for (let i = 0; i < 10; i++) {
+  if (i === 5) continue;
+  console.log(i);
+}
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+numbers.forEach((number) => console.log(number));
+
+const user = {
+  name: "John",
+  age: 30,
+  greet: function () {
+    console.log("Hello, my name is " + this.name);
+  },
+};
+user.greet();
+
+const prop = Object.keys(person)
+console.log(prop);
+
+const anything = Object.values(person)
+console.log(anything);
+
+const personCopy = { ...person, children: ["Joyce", "Jane", "Jamie"] }
+console.log(personCopy);
